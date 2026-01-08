@@ -169,41 +169,50 @@ TOTAL: 6 MESES
 ## Presupuesto MVP
 
 **Presupuesto total OIT:** $20,000 USD (6 meses)
-**Equipo:** 6 personas (2 en desarrollo)
+**Equipo:** 6 personas
 
-### Costos de Desarrollo (Tarifas Argentina)
+### Distribución por Área
+
+| Área | Personas | Período | Monto USD |
+|------|----------|---------|-----------|
+| **Desarrollo** (con Claude Code) | 2 | Meses 1-2 + soporte | $6,000 |
+| **Implementación** (actores, capacitación, difusión) | 4 | Meses 1-6 | $12,000 |
+| **Infraestructura** | - | 6 meses | $500 |
+| **Contingencia** | - | - | $1,500 |
+| **TOTAL** | **6** | **6 meses** | **$20,000** |
+
+### Detalle Desarrollo
 
 | Rubro | Horas | $/hora | Total USD |
 |-------|-------|--------|-----------|
-| Dev 1 (Lead) - 8 semanas desarrollo | 320 | $20 | $6,400 |
-| Dev 2 - 8 semanas desarrollo | 320 | $15 | $4,800 |
-| Soporte dev meses 3-6 (bugs, mejoras) | 80 | $17 | $1,360 |
-| **Subtotal Desarrollo** | **720** | - | **$12,560** |
+| Dev 1 - desarrollo intensivo | 150 | $20 | $3,000 |
+| Dev 2 - desarrollo intensivo | 150 | $15 | $2,250 |
+| Soporte meses 3-6 (bugs, mejoras) | 50 | $15 | $750 |
+| **Subtotal Desarrollo** | **350** | - | **$6,000** |
 
-*Nota: Tarifa promedio dev senior Argentina ~$15-25 USD/hora*
+*Claude Code acelera el desarrollo, reduciendo horas necesarias*
 
-### Costos Infraestructura (6 meses)
+### Detalle Implementación
 
-| Servicio | Plan | $/mes | Total USD |
-|----------|------|-------|-----------|
-| Vercel | Pro | $20 | $120 |
-| Supabase | Pro | $25 | $150 |
-| Dominio .ar | - | - | $20 |
-| Claude API (Claude Code) | Uso intensivo | ~$100 | $600 |
-| **Subtotal Infra** | - | - | **$890** |
+| Rol | Responsabilidad | Monto USD |
+|-----|-----------------|-----------|
+| Coordinador/a | Gestión proyecto, mesa tripartita | $4,000 |
+| Facilitador/a 1 | Captación talleres, onboarding | $3,000 |
+| Facilitador/a 2 | Captación marcas, onboarding | $3,000 |
+| Comunicación | Difusión, capacitación, materiales | $2,000 |
+| **Subtotal Implementación** | - | **$12,000** |
 
-*Alternativa: Usar tiers gratuitos de Vercel/Supabase para MVP (~$620 total)*
+### Detalle Infraestructura
 
-### Resumen Presupuesto
+| Servicio | Plan | Total USD |
+|----------|------|-----------|
+| Vercel | Free (MVP) | $0 |
+| Supabase | Free (MVP) | $0 |
+| Claude API | ~$80/mes × 6 | $480 |
+| Dominio | .ar | $20 |
+| **Subtotal Infra** | - | **$500** |
 
-| Categoría | Monto USD |
-|-----------|-----------|
-| Desarrollo (2 devs) | $12,560 |
-| Infraestructura | $890 |
-| Contingencia (~30%) | $4,035 |
-| **TOTAL** | **$17,485** |
-
-**Margen disponible:** ~$2,500 USD para imprevistos o extensión de horas
+*Usar tiers gratuitos en MVP, escalar en Fase 1 si necesario*
 
 ---
 
