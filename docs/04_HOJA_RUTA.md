@@ -191,16 +191,77 @@ TOTAL: 6 MESES
 
 ### Detalle Desarrollo (36 días)
 
-| Actividad | Días | Responsable |
-|-----------|------|-------------|
-| Setup + Auth + Perfiles | 8 | Dev 1 + Dev 2 |
-| Pedidos + Encontrar | 8 | Dev 1 + Dev 2 |
-| Acordar + Pagar (Mercado Pago) | 10 | Dev 1 + Dev 2 |
-| Aprender (cursos, certificados) | 6 | Dev 1 + Dev 2 |
-| Fiscalizar + Integración AFIP | 4 | Dev 1 + Dev 2 |
-| **Total desarrollo** | **36** | Con Claude Code |
+#### Etapa 1: Setup + Auth + Perfiles (8 días)
 
-*Claude Code acelera el desarrollo, permitiendo cubrir las 6 funciones en 36 días*
+| Día | Tarea | Dev 1 | Dev 2 | Claude |
+|-----|-------|-------|-------|--------|
+| 1 | Setup inicial | Proyecto Next.js, repo | Supabase, esquema DB | Tipos TypeScript |
+| 2 | Configuración | Vercel deploy, env vars | NextAuth config | Componentes base UI |
+| 3 | Auth básico | Login/registro marca | Login/registro taller | Validaciones, forms |
+| 4 | Auth completo | Recuperar contraseña | Roles y permisos | Tests auth |
+| 5 | Perfil marca | CRUD perfil marca | Verificación CUIT (mock) | Componentes perfil |
+| 6 | Perfil taller | CRUD perfil taller | Capacidades, ubicación | Forms dinámicos |
+| 7 | Verificación | Integración CUIT mock | Niveles bronce/plata/oro | Validaciones CUIT |
+| 8 | Cierre etapa | Testing, fixes | Documentación | Tests E2E auth |
+
+#### Etapa 2: Pedidos + Encontrar (8 días)
+
+| Día | Tarea | Dev 1 | Dev 2 | Claude |
+|-----|-------|-------|-------|--------|
+| 9 | Modelo pedidos | CRUD pedidos backend | Dashboard marca UI | Tipos y esquemas |
+| 10 | Crear pedido | Form crear pedido | Validaciones negocio | Componentes form |
+| 11 | Lista pedidos | API listado + filtros | Dashboard taller UI | Filtros, búsqueda |
+| 12 | Detalle pedido | Vista detalle pedido | Estados del pedido | Cards, badges |
+| 13 | Búsqueda talleres | API búsqueda talleres | UI resultados búsqueda | Algoritmo matching |
+| 14 | Perfil público | Vista pública taller | Filtros avanzados | SEO, meta tags |
+| 15 | Notificaciones | Emails nuevo pedido | UI notificaciones | Templates email |
+| 16 | Cierre etapa | Testing, fixes | Documentación | Tests E2E pedidos |
+
+#### Etapa 3: Acordar + Pagar (10 días)
+
+| Día | Tarea | Dev 1 | Dev 2 | Claude |
+|-----|-------|-------|-------|--------|
+| 17 | Cotizaciones | CRUD cotizaciones | UI cotizar pedido | Validaciones precio |
+| 18 | Negociación | Chat/mensajes básico | UI conversación | Componentes chat |
+| 19 | Contrato | Modelo contrato | Generación términos | Template contrato |
+| 20 | Firma digital | Firma marca | Firma taller | Validación firmas |
+| 21 | Mercado Pago setup | SDK, credenciales | Checkout Pro | Documentación MP |
+| 22 | Escrow | Crear preferencia | Webhook recepción | Manejo estados |
+| 23 | Liberación pago | Confirmar entrega | Liberar fondos | Notificaciones |
+| 24 | Historial pagos | API historial | UI mis pagos | Reportes básicos |
+| 25 | Disputas básico | Flag disputa | UI reportar problema | Estados disputa |
+| 26 | Cierre etapa | Testing MP sandbox | Documentación | Tests E2E pagos |
+
+#### Etapa 4: Aprender (6 días)
+
+| Día | Tarea | Dev 1 | Dev 2 | Claude |
+|-----|-------|-------|-------|--------|
+| 27 | Catálogo cursos | CRUD cursos (admin) | UI catálogo público | Seed datos cursos |
+| 28 | Inscripciones | API inscribirse | UI mis cursos | Validaciones |
+| 29 | Progreso | Tracking progreso | UI progreso curso | Cálculo % |
+| 30 | Certificados | Generación PDF | UI certificado | Template PDF |
+| 31 | Perfil público | Certificados en perfil | Verificación QR/código | Código verificación |
+| 32 | Cierre etapa | Testing, fixes | Contenido inicial | Tests E2E cursos |
+
+#### Etapa 5: Fiscalizar + Integración (4 días)
+
+| Día | Tarea | Dev 1 | Dev 2 | Claude |
+|-----|-------|-------|-------|--------|
+| 33 | Dashboard inspector | Vista inspector | Listado pedidos/talleres | Filtros prioridad |
+| 34 | Alertas | Detectar anomalías | UI alertas | Reglas alertas |
+| 35 | AFIP real | Reemplazar mock CUIT | Testing integración | Manejo errores |
+| 36 | Cierre MVP | Deploy producción | Testing final | Documentación API |
+
+#### Resumen por Etapa
+
+| Etapa | Días | Función | Entregable |
+|-------|------|---------|------------|
+| 1. Setup + Auth | 8 | COMPLIANCE | Login, perfiles, verificación CUIT |
+| 2. Pedidos | 8 | ENCONTRAR | Crear pedidos, buscar talleres |
+| 3. Acordar + Pagar | 10 | ACORDAR + PAGAR | Contratos, Mercado Pago, escrow |
+| 4. Aprender | 6 | APRENDER | Cursos, certificados PDF |
+| 5. Fiscalizar | 4 | FISCALIZAR | Dashboard inspector, alertas |
+| **TOTAL** | **36** | **6 funciones** | **MVP completo** |
 
 ### Detalle Infraestructura
 
