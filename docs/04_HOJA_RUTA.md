@@ -166,38 +166,44 @@ TOTAL: 6 MESES
 
 ---
 
-## Presupuesto Estimado
+## Presupuesto MVP
 
-### MVP (6 meses) - Equipo Reducido
+**Presupuesto total OIT:** $20,000 USD (6 meses)
+**Equipo:** 6 personas (2 en desarrollo)
 
-| Rubro | Monto USD |
-|-------|-----------|
-| Equipo técnico (2 devs × 6 meses) | $180,000 |
-| Claude API (uso intensivo) | $6,000 |
-| Infraestructura cloud (Vercel + Supabase) | $12,000 |
-| Diseño UX/UI (prototipo existente) | $12,000 |
-| Legal y compliance | $18,000 |
-| Capacitación y soporte piloto | $24,000 |
-| Contingencia (20%) | $50,400 |
-| **TOTAL MVP** | **$302,400** |
+### Costos de Desarrollo (Tarifas Argentina)
 
-*Nota: Presupuesto reducido ~50% por equipo pequeño + Claude + stack económico*
+| Rubro | Horas | $/hora | Total USD |
+|-------|-------|--------|-----------|
+| Dev 1 (Lead) - 8 semanas desarrollo | 320 | $20 | $6,400 |
+| Dev 2 - 8 semanas desarrollo | 320 | $15 | $4,800 |
+| Soporte dev meses 3-6 (bugs, mejoras) | 80 | $17 | $1,360 |
+| **Subtotal Desarrollo** | **720** | - | **$12,560** |
 
-### Fase 1 (6 meses adicionales)
+*Nota: Tarifa promedio dev senior Argentina ~$15-25 USD/hora*
 
-| Rubro | Monto USD |
-|-------|-----------|
-| Equipo técnico (6 personas) | $540,000 |
-| Infraestructura | $54,000 |
-| Integraciones (AFIP, blockchain) | $72,000 |
-| Marketing y adopción | $48,000 |
-| **TOTAL Fase 1** | **$714,000** |
+### Costos Infraestructura (6 meses)
 
-### Total Año 1: ~$1.3M USD
+| Servicio | Plan | $/mes | Total USD |
+|----------|------|-------|-----------|
+| Vercel | Pro | $20 | $120 |
+| Supabase | Pro | $25 | $150 |
+| Dominio .ar | - | - | $20 |
+| Claude API (Claude Code) | Uso intensivo | ~$100 | $600 |
+| **Subtotal Infra** | - | - | **$890** |
 
-### Auto-sostenibilidad
-- Comisión por transacción: 2-5%
-- Break-even estimado: Mes 9-12
+*Alternativa: Usar tiers gratuitos de Vercel/Supabase para MVP (~$620 total)*
+
+### Resumen Presupuesto
+
+| Categoría | Monto USD |
+|-----------|-----------|
+| Desarrollo (2 devs) | $12,560 |
+| Infraestructura | $890 |
+| Contingencia (~30%) | $4,035 |
+| **TOTAL** | **$17,485** |
+
+**Margen disponible:** ~$2,500 USD para imprevistos o extensión de horas
 
 ---
 
