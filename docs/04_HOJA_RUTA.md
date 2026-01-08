@@ -168,51 +168,49 @@ TOTAL: 6 MESES
 
 ## Presupuesto MVP
 
-**Presupuesto total OIT:** $20,000 USD (6 meses)
-**Equipo:** 6 personas
+**Presupuesto total OIT:** $20,000 USD = $29,700,000 ARS
+**Tipo de cambio:** $1,485 ARS/USD (oficial, enero 2026)
+**Equipo:** 6 personas (2 desarrollo + 4 implementación)
 
-### Distribución por Área
+### Presupuesto en Pesos Argentinos
 
-| Área | Personas | Período | Monto USD |
-|------|----------|---------|-----------|
-| **Desarrollo** (con Claude Code) | 2 | Meses 1-2 + soporte | $6,000 |
-| **Implementación** (actores, capacitación, difusión) | 4 | Meses 1-6 | $12,000 |
-| **Infraestructura** | - | 6 meses | $500 |
-| **Contingencia** | - | - | $1,500 |
-| **TOTAL** | **6** | **6 meses** | **$20,000** |
+| Actividad | Días | Valor/día ARS | Total ARS |
+|-----------|------|---------------|-----------|
+| Elaboración plan de trabajo e informes | 13 | 409,136 | 5,318,768 |
+| Coordinación reuniones técnicas | 5 | 409,136 | 2,045,680 |
+| **Diseño y desarrollo del prototipo** | **36** | **409,136** | **14,728,896** |
+| Seguimiento implementación piloto | 5 | 409,136 | 2,045,680 |
+| Monitoreo y evaluación de resultados | 3 | 409,136 | 1,227,408 |
+| Propuesta estrategia de escalamiento | 1 | 409,136 | 409,136 |
+| **Subtotal** | **63** | - | **25,775,568** |
+| Fee administración UNTREF (10%) | - | - | 2,577,557 |
+| Infraestructura (Claude API, dominio) | - | - | 750,000 |
+| **TOTAL** | - | - | **29,103,125** |
 
-### Detalle Desarrollo
+**Margen disponible:** ~$600,000 ARS (~$400 USD)
 
-| Rubro | Horas | $/hora | Total USD |
-|-------|-------|--------|-----------|
-| Dev 1 - desarrollo intensivo | 150 | $20 | $3,000 |
-| Dev 2 - desarrollo intensivo | 150 | $15 | $2,250 |
-| Soporte meses 3-6 (bugs, mejoras) | 50 | $15 | $750 |
-| **Subtotal Desarrollo** | **350** | - | **$6,000** |
+### Detalle Desarrollo (36 días)
 
-*Claude Code acelera el desarrollo, reduciendo horas necesarias*
+| Actividad | Días | Responsable |
+|-----------|------|-------------|
+| Setup + Auth + Perfiles | 8 | Dev 1 + Dev 2 |
+| Pedidos + Encontrar | 8 | Dev 1 + Dev 2 |
+| Acordar + Pagar (Mercado Pago) | 10 | Dev 1 + Dev 2 |
+| Aprender (cursos, certificados) | 6 | Dev 1 + Dev 2 |
+| Fiscalizar + Integración AFIP | 4 | Dev 1 + Dev 2 |
+| **Total desarrollo** | **36** | Con Claude Code |
 
-### Detalle Implementación
-
-| Rol | Responsabilidad | Monto USD |
-|-----|-----------------|-----------|
-| Coordinador/a | Gestión proyecto, mesa tripartita | $4,000 |
-| Facilitador/a 1 | Captación talleres, onboarding | $3,000 |
-| Facilitador/a 2 | Captación marcas, onboarding | $3,000 |
-| Comunicación | Difusión, capacitación, materiales | $2,000 |
-| **Subtotal Implementación** | - | **$12,000** |
+*Claude Code acelera el desarrollo, permitiendo cubrir las 6 funciones en 36 días*
 
 ### Detalle Infraestructura
 
-| Servicio | Plan | Total USD |
+| Servicio | Plan | Total ARS |
 |----------|------|-----------|
 | Vercel | Free (MVP) | $0 |
 | Supabase | Free (MVP) | $0 |
-| Claude API | ~$80/mes × 6 | $480 |
-| Dominio | .ar | $20 |
-| **Subtotal Infra** | - | **$500** |
-
-*Usar tiers gratuitos en MVP, escalar en Fase 1 si necesario*
+| Claude API (6 meses) | ~$80 USD/mes | $712,800 |
+| Dominio .ar | - | $37,200 |
+| **Subtotal Infra** | - | **$750,000** |
 
 ---
 
