@@ -1,150 +1,214 @@
 # 05 - Arquitectura Técnica
 
-## Estado: POR DEFINIR
+## Stack Recomendado para MVP (Equipo Pequeño)
 
-Este documento se completará cuando se defina el stack tecnológico.
+Para un equipo de 1-2 desarrolladores, se recomienda un stack unificado que minimice complejidad:
 
----
+```
+Frontend + Backend: Next.js 14+ (App Router)
+Base de Datos:      PostgreSQL via Supabase
+Autenticación:      NextAuth.js
+Pagos:              Mercado Pago SDK
+Email:              Resend o SendGrid
+Deploy:             Vercel (gratis para empezar)
+```
 
-## Opciones en Evaluación
-
-### Frontend
-
-| Opción | Pros | Contras |
-|--------|------|---------|
-| **React + TypeScript** | Ecosistema maduro, fácil contratar | Bundle grande |
-| **Vue.js 3** | Más ligero, curva suave | Menos developers |
-| **Next.js** | SSR, SEO, fullstack | Más complejo |
-
-### Backend
-
-| Opción | Pros | Contras |
-|--------|------|---------|
-| **Node.js + Express** | JavaScript everywhere, rápido | CPU-intensive lento |
-| **Python + FastAPI** | Aprovechar RAG existente, ML | Dos lenguajes |
-| **Python + Django** | Baterías incluidas, admin | Más pesado |
-
-### Base de Datos
-
-| Opción | Pros | Contras |
-|--------|------|---------|
-| **PostgreSQL** | ACID, JSON support, maduro | Escala vertical |
-| **MongoDB** | Flexible, escala horizontal | Sin ACID nativo |
-
-### Blockchain
-
-| Opción | Pros | Contras |
-|--------|------|---------|
-| **Polygon** | Bajo costo, EVM compatible | Menos descentralizado |
-| **Ethereum L2** | Más seguro | Más caro |
-| **Sin blockchain (MVP)** | Más simple | Menos verificable |
-
-### Infraestructura
-
-| Opción | Pros | Contras |
-|--------|------|---------|
-| **AWS** | Más servicios, ubicuidad | Costoso, lock-in |
-| **GCP** | ML/AI, Kubernetes | Menos servicios |
-| **DigitalOcean** | Simple, económico | Menos escala |
-| **On-premise** | Control total | Más trabajo |
+### Ventajas de este Stack
+- **Un solo proyecto**: Frontend y API en el mismo repositorio
+- **Un solo lenguaje**: TypeScript everywhere
+- **Deploy simple**: Push a GitHub = deploy automático
+- **Costo bajo**: Tier gratuito de Vercel + Supabase para MVP
+- **Sin blockchain en MVP**: Se agrega en Fase 1
 
 ---
 
-## Arquitectura Propuesta (Borrador)
+## Arquitectura MVP
 
 ```
 ┌─────────────────────────────────────────────────────────┐
-│                      FRONTEND                            │
-│  React + TypeScript / Next.js                           │
-│  - SPA para usuarios                                    │
-│  - PWA para móviles                                     │
-└─────────────────────┬───────────────────────────────────┘
-                      │ REST API / GraphQL
-┌─────────────────────┴───────────────────────────────────┐
-│                      BACKEND                             │
-│  Node.js + Express / FastAPI                            │
-│  - API REST                                             │
-│  - Autenticación (JWT)                                  │
-│  - Lógica de negocio                                    │
-└─────────────────────┬───────────────────────────────────┘
-                      │
-┌─────────────────────┴───────────────────────────────────┐
-│                   SERVICIOS                              │
-│  ┌─────────┐ ┌─────────┐ ┌─────────┐ ┌─────────┐       │
-│  │   DB    │ │  AFIP   │ │ Mercado │ │Blockchain│       │
-│  │PostgreSQL│ │  API    │ │  Pago   │ │ Polygon │       │
-│  └─────────┘ └─────────┘ └─────────┘ └─────────┘       │
+│                      USUARIOS                            │
+│  Marca  │  Taller  │  Inspector                         │
+└───────────────┬─────────────────────────────────────────┘
+                │
+┌───────────────┴─────────────────────────────────────────┐
+│              FRONTEND (Next.js)                          │
+│  - Landing + Auth                                        │
+│  - Dashboard por rol                                     │
+│  - Crear/ver pedidos                                     │
+│  - Catálogo de cursos                                    │
+│  - Perfil taller/marca                                   │
+└───────────────┬─────────────────────────────────────────┘
+                │ API Routes
+┌───────────────┴─────────────────────────────────────────┐
+│              BACKEND (Next.js API)                       │
+│  - Auth (NextAuth)                                       │
+│  - CRUD pedidos/contratos                                │
+│  - CRUD cursos/certificados                              │
+│  - Verificación AFIP                                     │
+│  - Webhooks Mercado Pago                                 │
+└───────────────┬─────────────────────────────────────────┘
+                │
+┌───────────────┴─────────────────────────────────────────┐
+│              BASE DE DATOS (Supabase)                    │
+│  PostgreSQL + Auth + Storage                             │
+└───────────────┬─────────────────────────────────────────┘
+                │
+┌───────────────┴─────────────────────────────────────────┐
+│              SERVICIOS EXTERNOS                          │
+│  ┌─────────┐ ┌─────────┐ ┌─────────┐                    │
+│  │  AFIP   │ │ Mercado │ │  Email  │                    │
+│  │  API    │ │  Pago   │ │ Resend  │                    │
+│  └─────────┘ └─────────┘ └─────────┘                    │
 └─────────────────────────────────────────────────────────┘
 ```
 
 ---
 
-## Modelo de Datos (Borrador)
+## Opciones Alternativas (Referencia)
 
-### Entidades Principales
+### Si se prefiere Python Backend
+
+| Componente | Opción |
+|------------|--------|
+| Frontend | React + Vite |
+| Backend | FastAPI (Python) |
+| DB | PostgreSQL (Railway) |
+| Deploy | Railway o Render |
+
+*Útil si se quiere integrar scripts Python existentes (RAG).*
+
+---
+
+## Modelo de Datos MVP
+
+### Esquema SQL
+
+```sql
+-- USUARIOS Y PERFILES
+users (
+  id UUID PRIMARY KEY,
+  email VARCHAR UNIQUE,
+  role ENUM('marca', 'taller', 'inspector'),
+  cuit VARCHAR(11),
+  cuit_verified BOOLEAN DEFAULT FALSE,
+  created_at TIMESTAMP
+)
+
+marca_profiles (
+  user_id UUID REFERENCES users,
+  razon_social VARCHAR,
+  rubro VARCHAR,
+  ubicacion VARCHAR,
+  historial_pagos_score DECIMAL
+)
+
+taller_profiles (
+  user_id UUID REFERENCES users,
+  razon_social VARCHAR,
+  capacidades TEXT[],
+  ubicacion VARCHAR,
+  nivel ENUM('bronce', 'plata', 'oro'),
+  reputacion_score DECIMAL
+)
+
+-- TRANSACCIONES
+pedidos (
+  id UUID PRIMARY KEY,
+  marca_id UUID REFERENCES users,
+  estado ENUM('publicado', 'en_negociacion', 'acordado', 'completado'),
+  tipo_prenda VARCHAR,
+  cantidad INT,
+  precio_max DECIMAL,
+  plazo DATE,
+  created_at TIMESTAMP
+)
+
+cotizaciones (
+  id UUID PRIMARY KEY,
+  pedido_id UUID REFERENCES pedidos,
+  taller_id UUID REFERENCES users,
+  precio DECIMAL,
+  plazo DATE,
+  mensaje TEXT,
+  created_at TIMESTAMP
+)
+
+contratos (
+  id UUID PRIMARY KEY,
+  pedido_id UUID REFERENCES pedidos,
+  taller_id UUID REFERENCES users,
+  terminos TEXT,
+  firma_marca TIMESTAMP,
+  firma_taller TIMESTAMP,
+  fecha_firma TIMESTAMP
+)
+
+pagos (
+  id UUID PRIMARY KEY,
+  contrato_id UUID REFERENCES contratos,
+  monto DECIMAL,
+  estado ENUM('pendiente', 'en_escrow', 'liberado', 'disputado'),
+  mp_payment_id VARCHAR,
+  created_at TIMESTAMP
+)
+
+-- APRENDIZAJE (Comunidad)
+cursos (
+  id UUID PRIMARY KEY,
+  titulo VARCHAR,
+  descripcion TEXT,
+  duracion_horas INT,
+  categoria VARCHAR,
+  contenido_url VARCHAR,
+  activo BOOLEAN DEFAULT TRUE,
+  created_at TIMESTAMP
+)
+
+inscripciones (
+  id UUID PRIMARY KEY,
+  user_id UUID REFERENCES users,
+  curso_id UUID REFERENCES cursos,
+  progreso INT DEFAULT 0,
+  completado BOOLEAN DEFAULT FALSE,
+  fecha_inicio TIMESTAMP,
+  fecha_fin TIMESTAMP
+)
+
+certificados (
+  id UUID PRIMARY KEY,
+  user_id UUID REFERENCES users,
+  curso_id UUID REFERENCES cursos,
+  codigo_verificacion VARCHAR UNIQUE,
+  fecha_emision TIMESTAMP,
+  pdf_url VARCHAR
+)
+```
+
+### Diagrama Entidad-Relación
 
 ```
-Usuario
-├── id
-├── tipo (TALLER | MARCA | INSPECTOR | TRABAJADOR)
-├── email
-├── cuit
-├── estado_verificacion
-└── fecha_registro
+┌─────────┐       ┌─────────┐       ┌─────────┐
+│  users  │───────│ pedidos │───────│contratos│
+└────┬────┘       └────┬────┘       └────┬────┘
+     │                 │                 │
+     │            ┌────┴────┐       ┌────┴────┐
+     │            │cotizac. │       │  pagos  │
+     │            └─────────┘       └─────────┘
+     │
+     ├────────────┐
+     │            │
+┌────┴────┐  ┌────┴────┐
+│ marca   │  │ taller  │
+│ profile │  │ profile │
+└─────────┘  └─────────┘
 
-Taller
-├── id
-├── usuario_id
-├── razon_social
-├── nivel_formalizacion (BRONCE | PLATA | ORO)
-├── capacidades[]
-├── ubicacion
-└── reputacion_score
-
-Marca
-├── id
-├── usuario_id
-├── razon_social
-├── sector
-└── historial_pagos_score
-
-Pedido
-├── id
-├── marca_id
-├── taller_id
-├── estado (BORRADOR | PUBLICADO | EN_NEGOCIACION | ACORDADO | EN_EJECUCION | COMPLETADO)
-├── tipo_prenda
-├── cantidad
-├── precio_unitario
-├── precio_referencia
-├── fecha_limite
-└── hitos[]
-
-Contrato
-├── id
-├── pedido_id
-├── terminos
-├── firma_marca
-├── firma_taller
-├── fecha_firma
-└── hash_blockchain
-
-Avance
-├── id
-├── pedido_id
-├── porcentaje
-├── evidencia_url
-├── trabajador_cuit
-├── fecha
-└── validado
-
-Pago
-├── id
-├── pedido_id
-├── monto
-├── estado
-├── fecha
-└── metodo
+┌─────────┐       ┌─────────┐       ┌─────────┐
+│  cursos │───────│inscripc.│───────│ certif. │
+└─────────┘       └────┬────┘       └─────────┘
+                       │
+                  ┌────┴────┐
+                  │  users  │
+                  └─────────┘
 ```
 
 ---
@@ -155,14 +219,19 @@ Ver: [06_INTEGRACIONES.md](06_INTEGRACIONES.md)
 
 ---
 
-## Decisiones Pendientes
+## Decisiones Técnicas
 
-- [ ] Definir stack frontend
-- [ ] Definir stack backend
-- [ ] Definir proveedor cloud
-- [ ] Definir si MVP usa blockchain o no
-- [ ] Definir estrategia de autenticación
-- [ ] Definir estrategia de testing
+### Decidido
+- [x] Stack: Next.js + Supabase (recomendado)
+- [x] MVP sin blockchain (se agrega en Fase 1)
+- [x] Autenticación: NextAuth.js
+- [x] Pagos: Mercado Pago con escrow
+- [x] Deploy: Vercel
+
+### Pendiente de Confirmar
+- [ ] Confirmar stack con equipo de desarrollo
+- [ ] Definir estrategia de testing (Jest + Cypress)
+- [ ] Configurar CI/CD en GitHub Actions
 
 ---
 

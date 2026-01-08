@@ -35,63 +35,84 @@ Todo el código en GitHub, blockchain para verificación.
 | Tasa de disputa | <5% |
 | Satisfacción | >80% |
 
-### Funciones en MVP (7 de 10)
+### Funciones en MVP (6 de 10)
 
-| Función | Estado |
-|---------|--------|
-| ENCONTRAR | ✅ Simplificado |
-| ACORDAR | ✅ Sin blockchain |
-| EJECUTAR | ✅ Básico |
-| PAGAR | ✅ Sin escrow automático |
-| COMPLIANCE | ✅ Simplificado |
-| FISCALIZAR | ✅ Dashboard básico |
-| GOBERNAR | ✅ Mesa tripartita |
-| VERIFICAR | ❌ Fase 1 |
-| LOGÍSTICA | ❌ Fase 1 |
-| APRENDER | ❌ Fase 1 |
+| Función | Estado | Barrera que resuelve |
+|---------|--------|---------------------|
+| ENCONTRAR | ✅ Directorio + búsqueda simple | Falta de clientes |
+| ACORDAR | ✅ Contrato digital básico | Desconfianza |
+| PAGAR | ✅ Escrow con Mercado Pago | Desconfianza |
+| COMPLIANCE | ✅ Verificación CUIT | Formalización |
+| FISCALIZAR | ✅ Dashboard básico | Estado ausente |
+| APRENDER | ✅ Catálogo + certificados | Comunidad de aprendizaje |
+| EJECUTAR | ❌ Fase 1 | - |
+| VERIFICAR | ❌ Fase 1 | - |
+| LOGÍSTICA | ❌ Fase 1 | - |
+| GOBERNAR | ❌ Fase 1 | - |
 
-### Cronograma MVP
+### Cronograma MVP (Sprints - Equipo 1-2 devs)
 
 ```
-MES -3 a -1: PREPARACIÓN
-├── Constituir mesa tripartita
-├── Seleccionar talleres y marcas piloto
-├── Definir métricas de éxito
-└── Preparar documentación legal
+SPRINT 0: SETUP (1 semana)
+├── Crear proyecto Next.js
+├── Configurar Supabase/PostgreSQL
+├── Configurar NextAuth
+└── Deploy inicial en Vercel
 
-MES 0: KICK-OFF
-├── Mesa tripartita aprueba alcance MVP
-├── Equipo técnico inicia desarrollo
-└── Onboarding de primeros talleres
+SPRINT 1: AUTH + PERFILES (2 semanas)
+├── Registro marca/taller
+├── Login
+├── Verificación CUIT básica
+└── Perfil editable
 
-MES 1-2: DESARROLLO CORE
-├── Registro de usuarios (COMPLIANCE básico)
-├── Crear pedido y matching (ENCONTRAR)
-├── Contrato digital (ACORDAR)
-└── Revisión quincenal con mesa tripartita
+SPRINT 2: PEDIDOS (2 semanas)
+├── CRUD pedidos (ENCONTRAR)
+├── Dashboard marca
+├── Dashboard taller
+└── Lista de pedidos disponibles
 
-MES 3: PRIMER PILOTO
-├── 5 talleres + 3 marcas hacen pedidos reales
-├── Soporte intensivo del equipo
-├── Recopilación de feedback
-└── Ajustes urgentes
+SPRINT 3: MATCHING + CONTRATOS (2 semanas)
+├── Búsqueda de talleres (ENCONTRAR)
+├── Cotización (ACORDAR)
+├── Contrato digital
+└── Notificaciones email
 
-MES 4: SEGUNDO CICLO
-├── Seguimiento de pedidos (EJECUTAR)
-├── Pagos vía plataforma (PAGAR)
-├── Dashboard Estado (FISCALIZAR)
-└── Más talleres y marcas
+SPRINT 4: PAGOS (2 semanas)
+├── Integración Mercado Pago (PAGAR)
+├── Escrow al crear pedido
+├── Liberación al confirmar entrega
+└── Historial de pagos
 
-MES 5: EXPANSIÓN PILOTO
-├── 15 talleres + 8 marcas
-├── Dashboard mesa tripartita (GOBERNAR)
-├── Refinamiento basado en feedback
+SPRINT 5: APRENDIZAJE (2 semanas)
+├── Catálogo de cursos (APRENDER)
+├── Inscripción a cursos
+├── Tracking de progreso
+├── Certificados PDF
+└── Certificados en perfil
 
-MES 6: EVALUACIÓN
-├── Mesa tripartita evalúa métricas
-├── Decisión: ¿Escalar a Fase 1 o refinar MVP?
-├── Documentación de aprendizajes
+SPRINT 6: ESTADO + POLISH (2 semanas)
+├── Dashboard inspector (FISCALIZAR)
+├── Alertas básicas
+├── Testing con usuarios reales
+└── Fixes y mejoras
+
+TOTAL: ~13 semanas (3.5 meses)
 ```
+
+### Pantallas MVP (10 pantallas)
+
+| # | Pantalla | Rol | Función |
+|---|----------|-----|---------|
+| 1 | Landing/Login | Todos | Auth |
+| 2 | Perfil | Todos | Compliance |
+| 3 | Dashboard Marca | Marca | - |
+| 4 | Crear Pedido | Marca | Encontrar |
+| 5 | Ver Talleres | Marca | Encontrar |
+| 6 | Dashboard Taller | Taller | - |
+| 7 | Aceptar Pedido | Taller | Acordar |
+| 8 | Catálogo Cursos | Taller | Aprender |
+| 9 | Mis Certificados | Taller | Aprender |
+| 10 | Dashboard Inspector | Estado | Fiscalizar |
 
 ---
 
@@ -100,9 +121,10 @@ MES 6: EVALUACIÓN
 ### Objetivos
 - Escalar de 20 a 100 talleres
 - Escalar de 10 a 50 marcas
-- Agregar funciones faltantes (VERIFICAR, LOGÍSTICA, APRENDER)
+- Agregar funciones faltantes (EJECUTAR, VERIFICAR, LOGÍSTICA, GOBERNAR)
 - Integrar blockchain real (Polygon)
-- Integrar escrow automático
+- IA para matching avanzado
+- Certificados avanzados con blockchain
 
 ### Métricas Fase 1
 

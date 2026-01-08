@@ -2,7 +2,7 @@
 
 ## Resumen
 
-De los **46 casos de uso** documentados, estos son los prioritarios para el MVP:
+De los **50 casos de uso** documentados, **13 son prioritarios para el MVP** (6 funciones):
 
 ---
 
@@ -30,12 +30,12 @@ De los **46 casos de uso** documentados, estos son los prioritarios para el MVP:
 | CU-A04 | Estado firma contrato compra pública | Estado | ❌ |
 | CU-A05 | Renegociación de condiciones | Marca + Taller | ❌ |
 
-### EJECUTAR (4 casos totales, 2 en MVP)
+### EJECUTAR (4 casos totales, 0 en MVP - Fase 1)
 
 | ID | Caso | Actor | MVP |
 |----|------|-------|-----|
-| CU-X01 | Taller registra avance con evidencia | Taller | ✅ |
-| CU-X02 | Marca monitorea en tiempo real | Marca | ✅ |
+| CU-X01 | Taller registra avance con evidencia | Taller | ❌ |
+| CU-X02 | Marca monitorea en tiempo real | Marca | ❌ |
 | CU-X03 | Sistema detecta retraso y alerta | Sistema | ❌ |
 | CU-X04 | Producción distribuida entre talleres | Cooperativas | ❌ |
 
@@ -71,24 +71,36 @@ De los **46 casos de uso** documentados, estos son los prioritarios para el MVP:
 | CU-F04 | Inspector agenda auditoría | Inspector | ❌ |
 | CU-F05 | Sistema genera reporte para MTEySS | Sistema | ❌ |
 
-### GOBERNAR (6 casos totales, 2 en MVP)
+### GOBERNAR (6 casos totales, 0 en MVP)
 
 | ID | Caso | Actor | MVP |
 |----|------|-------|-----|
-| CU-G01 | Mesa tripartita define parámetros | Mesa | ✅ |
-| CU-G02 | Dashboard muestra métricas del ecosistema | Mesa | ✅ |
+| CU-G01 | Mesa tripartita define parámetros | Mesa | ❌ |
+| CU-G02 | Dashboard muestra métricas del ecosistema | Mesa | ❌ |
 | CU-G03 | Simulador de impacto de cambios | Mesa | ❌ |
 | CU-G04 | OIT genera reporte de impacto | OIT | ❌ |
 | CU-G05 | Investigador accede a datos anonimizados | Investigador | ❌ |
 | CU-G06 | Sistema sugiere ajustes por tendencias | Sistema | ❌ |
+
+### APRENDER (4 casos totales, 3 en MVP)
+
+| ID | Caso | Actor | MVP |
+|----|------|-------|-----|
+| CU-AP01 | Taller ve catálogo de cursos disponibles | Taller | ✅ |
+| CU-AP02 | Taller se inscribe en curso | Taller | ✅ |
+| CU-AP03 | Taller completa curso y recibe certificado | Taller | ✅ |
+| CU-AP04 | Sistema recomienda cursos según perfil | Sistema | ❌ |
 
 ---
 
 ## Flujo Principal del MVP
 
 ```
+FLUJO TRANSACCIONAL:
+
 1. MARCA crea pedido (ENCONTRAR)
    → Define: prenda, cantidad, plazo, presupuesto
+   → Deposita en Mercado Pago (escrow)
 
 2. SISTEMA sugiere talleres compatibles (ENCONTRAR)
    → Filtra por: formalización, capacidad, ubicación
@@ -99,20 +111,29 @@ De los **46 casos de uso** documentados, estos son los prioritarios para el MVP:
 4. CONTRATO se firma digitalmente (ACORDAR)
    → Condiciones, hitos, pagos
 
-5. TALLER registra avance (EJECUTAR)
-   → Fotos, porcentaje, CUIT trabajador
+5. TALLER produce y entrega
+   → Marca avance manualmente
+   → Sube foto de entrega
 
-6. MARCA monitorea progreso (EJECUTAR)
-   → Ve tablero en tiempo real
+6. MARCA confirma recepción (PAGAR)
+   → Mercado Pago libera pago a taller
+   → Pedido completado
 
-7. MARCA paga por hitos (PAGAR)
-   → Al completar 50%, 100%
+7. ESTADO monitorea (FISCALIZAR)
+   → Dashboard con alertas de anomalías
 
-8. ESTADO monitorea (FISCALIZAR)
-   → Dashboard con alertas
 
-9. MESA revisa métricas (GOBERNAR)
-   → Ajusta parámetros si necesario
+FLUJO PARALELO - COMUNIDAD DE APRENDIZAJE:
+
+8. TALLER explora cursos (APRENDER)
+   → Ve catálogo con descripciones
+
+9. TALLER se inscribe y completa curso (APRENDER)
+   → Progreso registrado en sistema
+
+10. TALLER recibe certificado (APRENDER)
+    → PDF verificable
+    → Aparece en su perfil público
 ```
 
 ---
@@ -129,11 +150,6 @@ De los **46 casos de uso** documentados, estos son los prioritarios para el MVP:
 - [ ] Ambas partes firman digitalmente
 - [ ] Precio de referencia se muestra automáticamente
 
-### Para EJECUTAR
-- [ ] Taller puede registrar avance con foto
-- [ ] Marca ve progreso sin llamar/visitar
-- [ ] Sistema registra fecha/hora de cada evento
-
 ### Para PAGAR
 - [ ] Marca puede pagar vía plataforma
 - [ ] Taller recibe notificación de pago
@@ -149,10 +165,12 @@ De los **46 casos de uso** documentados, estos son los prioritarios para el MVP:
 - [ ] Sistema alerta precios <70% del referencia
 - [ ] Dashboard muestra métricas básicas
 
-### Para GOBERNAR
-- [ ] Mesa puede ver métricas del ecosistema
-- [ ] Parámetros del algoritmo son configurables
-- [ ] Cambios quedan registrados con fecha/usuario
+### Para APRENDER
+- [ ] Taller ve catálogo de cursos con descripción y duración
+- [ ] Taller puede inscribirse a un curso en <1 minuto
+- [ ] Sistema registra progreso del curso
+- [ ] Al completar, taller recibe certificado PDF verificable
+- [ ] Certificados aparecen en perfil del taller
 
 ---
 

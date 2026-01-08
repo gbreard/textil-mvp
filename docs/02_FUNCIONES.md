@@ -125,20 +125,31 @@ La plataforma tiene **10 funciones** organizadas en 3 grupos:
 
 ---
 
-## Funciones en MVP (7 de 10)
+## Funciones en MVP (6 de 10)
 
 | Función | En MVP | Notas |
 |---------|--------|-------|
-| ENCONTRAR | ✅ | Simplificado |
-| ACORDAR | ✅ | Sin blockchain |
-| EJECUTAR | ✅ | Básico |
-| VERIFICAR | ❌ | Fase 1 |
-| LOGÍSTICA | ❌ | Fase 1 |
-| PAGAR | ✅ | Sin escrow automático |
-| APRENDER | ❌ | Fase 1 |
-| COMPLIANCE | ✅ | Simplificado |
-| FISCALIZAR | ✅ | Dashboard básico |
-| GOBERNAR | ✅ | Mesa tripartita |
+| ENCONTRAR | ✅ | Directorio + búsqueda simple |
+| ACORDAR | ✅ | Contrato digital básico (sin blockchain) |
+| EJECUTAR | ❌ | Fase 1 (seguimiento en tiempo real) |
+| VERIFICAR | ❌ | Fase 1 (blockchain, QR) |
+| LOGÍSTICA | ❌ | Fase 1 (hubs) |
+| PAGAR | ✅ | Escrow con Mercado Pago |
+| APRENDER | ✅ | Catálogo cursos + certificados simples |
+| COMPLIANCE | ✅ | Verificación CUIT en AFIP |
+| FISCALIZAR | ✅ | Dashboard básico para Estado |
+| GOBERNAR | ❌ | Fase 1 (parametrización avanzada) |
+
+### Barreras que resuelve el MVP
+
+| Función MVP | Barreras |
+|-------------|----------|
+| ENCONTRAR | B4 (Falta de clientes) |
+| ACORDAR | B2 (Desconfianza) |
+| PAGAR | B2 (Desconfianza) |
+| COMPLIANCE | B3 (Formalización) |
+| FISCALIZAR | B5 (Estado ausente) |
+| APRENDER | B6 (Bajas capacidades) - Base para comunidad de aprendizaje |
 
 ---
 
