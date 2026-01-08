@@ -50,53 +50,72 @@ Todo el código en GitHub, blockchain para verificación.
 | LOGÍSTICA | ❌ Fase 1 | - |
 | GOBERNAR | ❌ Fase 1 | - |
 
-### Cronograma MVP (Sprints - Equipo 1-2 devs)
+### Cronograma MVP (Equipo: 2 devs + Claude)
 
 ```
-SPRINT 0: SETUP (1 semana)
-├── Crear proyecto Next.js
-├── Configurar Supabase/PostgreSQL
-├── Configurar NextAuth
-└── Deploy inicial en Vercel
+═══════════════════════════════════════════════════════════════
+FASE DESARROLLO: 2 MESES (8 semanas)
+═══════════════════════════════════════════════════════════════
 
-SPRINT 1: AUTH + PERFILES (2 semanas)
-├── Registro marca/taller
-├── Login
-├── Verificación CUIT básica
-└── Perfil editable
+SEMANA 1: SETUP + AUTH
+├── Dev 1: Proyecto Next.js + Supabase + Deploy Vercel
+├── Dev 2: NextAuth + modelo usuarios
+└── Claude: Scaffolding, tipos TypeScript, componentes base
 
-SPRINT 2: PEDIDOS (2 semanas)
-├── CRUD pedidos (ENCONTRAR)
-├── Dashboard marca
-├── Dashboard taller
-└── Lista de pedidos disponibles
+SEMANA 2: AUTH + PERFILES
+├── Dev 1: Registro marca/taller + login
+├── Dev 2: Perfiles editables + verificación CUIT (mock)
+└── Claude: Validaciones, formularios, tests unitarios
 
-SPRINT 3: MATCHING + CONTRATOS (2 semanas)
-├── Búsqueda de talleres (ENCONTRAR)
-├── Cotización (ACORDAR)
-├── Contrato digital
-└── Notificaciones email
+SEMANA 3-4: PEDIDOS + ENCONTRAR
+├── Dev 1: CRUD pedidos + dashboard marca
+├── Dev 2: Dashboard taller + lista pedidos
+└── Claude: Componentes UI, filtros, búsqueda
 
-SPRINT 4: PAGOS (2 semanas)
-├── Integración Mercado Pago (PAGAR)
-├── Escrow al crear pedido
-├── Liberación al confirmar entrega
-└── Historial de pagos
+SEMANA 5-6: ACORDAR + PAGAR
+├── Dev 1: Cotizaciones + contratos digitales
+├── Dev 2: Integración Mercado Pago + escrow
+└── Claude: Lógica de estados, webhooks, notificaciones
 
-SPRINT 5: APRENDIZAJE (2 semanas)
-├── Catálogo de cursos (APRENDER)
-├── Inscripción a cursos
-├── Tracking de progreso
-├── Certificados PDF
-└── Certificados en perfil
+SEMANA 7: APRENDER
+├── Dev 1: Catálogo cursos + inscripciones
+├── Dev 2: Certificados PDF + perfil público
+└── Claude: Generación PDF, tracking progreso
 
-SPRINT 6: ESTADO + POLISH (2 semanas)
-├── Dashboard inspector (FISCALIZAR)
-├── Alertas básicas
-├── Testing con usuarios reales
-└── Fixes y mejoras
+SEMANA 8: FISCALIZAR + INTEGRACIÓN
+├── Dev 1: Dashboard inspector + alertas
+├── Dev 2: Integración AFIP real (reemplazar mock)
+└── Claude: Tests E2E, documentación API
 
-TOTAL: ~13 semanas (3.5 meses)
+═══════════════════════════════════════════════════════════════
+FASE IMPLEMENTACIÓN Y PRUEBAS: 4 MESES
+═══════════════════════════════════════════════════════════════
+
+MES 3: PILOTO INICIAL
+├── Onboarding 5 talleres + 3 marcas
+├── Soporte intensivo
+├── Recopilación feedback
+└── Fixes críticos
+
+MES 4: EXPANSIÓN PILOTO
+├── Escalar a 15 talleres + 8 marcas
+├── Primeras transacciones reales
+├── Ajustes UX basados en uso
+└── Capacitación usuarios
+
+MES 5: ESTABILIZACIÓN
+├── 20 talleres + 10 marcas objetivo
+├── Monitoreo de métricas
+├── Optimización performance
+└── Documentación para soporte
+
+MES 6: EVALUACIÓN Y CIERRE MVP
+├── Evaluación métricas vs objetivos
+├── Documentación de aprendizajes
+├── Plan para Fase 1
+└── Decisión: escalar o iterar
+
+TOTAL: 6 MESES
 ```
 
 ### Pantallas MVP (10 pantallas)
@@ -149,17 +168,20 @@ TOTAL: ~13 semanas (3.5 meses)
 
 ## Presupuesto Estimado
 
-### MVP (6 meses)
+### MVP (6 meses) - Equipo Reducido
 
 | Rubro | Monto USD |
 |-------|-----------|
-| Equipo técnico (4 personas × 6 meses) | $360,000 |
-| Infraestructura cloud | $36,000 |
-| Diseño UX/UI | $48,000 |
-| Legal y compliance | $24,000 |
-| Capacitación y soporte | $36,000 |
-| Contingencia (20%) | $100,800 |
-| **TOTAL MVP** | **$604,800** |
+| Equipo técnico (2 devs × 6 meses) | $180,000 |
+| Claude API (uso intensivo) | $6,000 |
+| Infraestructura cloud (Vercel + Supabase) | $12,000 |
+| Diseño UX/UI (prototipo existente) | $12,000 |
+| Legal y compliance | $18,000 |
+| Capacitación y soporte piloto | $24,000 |
+| Contingencia (20%) | $50,400 |
+| **TOTAL MVP** | **$302,400** |
+
+*Nota: Presupuesto reducido ~50% por equipo pequeño + Claude + stack económico*
 
 ### Fase 1 (6 meses adicionales)
 
@@ -179,15 +201,29 @@ TOTAL: ~13 semanas (3.5 meses)
 
 ---
 
-## Equipo Mínimo MVP
+## Equipo MVP
 
 | Rol | Cantidad | Responsabilidad |
 |-----|----------|-----------------|
-| Tech Lead | 1 | Arquitectura, código |
-| Full-stack Dev | 2 | Frontend + Backend |
-| UX Designer | 1 | Interfases, prototipo |
-| Product Owner | 1 | Priorización, mesa tripartita |
-| DevOps | 0.5 | Infra, CI/CD |
+| Full-stack Dev | 2 | Frontend, Backend, integraciones |
+| Claude (IA) | 1 | Scaffolding, componentes, tests, documentación |
+
+### Distribución de Trabajo
+
+```
+Dev 1 (Lead)           Dev 2                  Claude
+─────────────────────────────────────────────────────────
+Arquitectura           Features paralelas     Código boilerplate
+Integraciones críticas UI/UX implementation   Componentes React
+Code review            Testing manual         Tests automatizados
+Deploy/DevOps          Documentación usuario  Documentación técnica
+```
+
+### Rol de Claude en el Desarrollo
+- **Generación de código**: Componentes, tipos, validaciones
+- **Aceleración**: Tareas repetitivas, scaffolding
+- **Calidad**: Tests unitarios, E2E, documentación
+- **Soporte**: Debugging, optimización, refactoring
 
 ---
 
