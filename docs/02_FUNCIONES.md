@@ -136,6 +136,79 @@ La plataforma tiene **10 funciones** organizadas en 3 grupos:
 
 ---
 
+## Perfiles Comerciales: El Espacio de Cada Actor
+
+Para que ENCONTRAR funcione, cada actor necesita un **espacio propio** donde presentar su información comercial.
+
+### Perfil del Taller
+
+| Sección | Campos | Obligatorio |
+|---------|--------|-------------|
+| **Datos básicos** | Nombre, CUIT (verificado), Ubicación, WhatsApp, Foto | Sí |
+| **Capacidades** | Procesos que realiza, Tipos de prenda, Capacidad mensual | Sí |
+| **Equipamiento** | Maquinaria, Trabajadores registrados | Parcial |
+| **Extras** | Descripción, Fotos de trabajos (portfolio) | No |
+
+**Catálogo de Procesos (el taller marca los que hace):**
+1. Corte
+2. Confección
+3. Lavandería
+4. Desgaste/Lijado
+5. Acabado/Terminación
+6. Tintorería
+7. Estampado
+8. Bordado
+9. Planchado
+10. Sublimado
+11. Control de calidad
+
+**Catálogo de Prendas (el taller marca su especialización):**
+1. Remera/Camiseta
+2. Buzo/Hoodie
+3. Campera
+4. Jean
+5. Pantalón
+6. Camisa
+7. Ropa de trabajo
+8. Ropa deportiva
+9. Ropa infantil
+10. Lencería/Interior
+11. Otros
+
+### Perfil de la Marca
+
+| Sección | Campos | Obligatorio |
+|---------|--------|-------------|
+| **Datos básicos** | Razón social, CUIT, Ubicación, WhatsApp, Logo | Sí |
+| **Actividad** | Descripción, Tipos de prenda, Sector/Nicho | Parcial |
+| **Volumen** | Pedidos mensuales típicos, Cantidad promedio | No |
+
+### Matching Simplificado en MVP
+
+```
+MARCA crea pedido → SISTEMA filtra talleres → SISTEMA rankea → MARCA ve lista
+```
+
+**Criterios de filtro:**
+- Taller tiene la capacidad de prenda requerida
+- Taller tiene los procesos requeridos
+- Taller tiene capacidad >= cantidad del pedido
+- Taller tiene CUIT verificado
+
+**Fórmula de ranking:**
+- Formalización (nivel): 40%
+- Proximidad geográfica: 30%
+- Reputación (rating): 20%
+- Capacidad disponible: 10%
+
+**Lo que NO hacemos en MVP:**
+- Rutas de procesos predefinidas por prenda
+- División automática entre talleres
+- Matching con IA/ML
+- Precio automático por proceso
+
+---
+
 ## Funciones en MVP (7 de 11)
 
 | Función | En MVP | Notas |
