@@ -1,24 +1,28 @@
 # 05 - Arquitectura Técnica
 
-## Stack Recomendado para MVP (Equipo Pequeño)
+## Stack Confirmado para MVP
 
-Para un equipo de 1-2 desarrolladores, se recomienda un stack unificado que minimice complejidad:
+**Equipo:** 2 desarrolladores no-programadores + Claude Max (desarrollo 100% asistido por IA)
 
 ```
 Frontend + Backend: Next.js 14+ (App Router)
-Base de Datos:      PostgreSQL via Supabase
+Base de Datos:      PostgreSQL via Supabase Pro ($25/mes)
 Autenticación:      NextAuth.js
-Pagos:              Mercado Pago SDK
+Pagos:              Placeholder (Mercado Pago en Fase 1)
 Email:              Resend o SendGrid
-Deploy:             Vercel (gratis para empezar)
+WhatsApp:           Twilio (requerido por OIT)
+Deploy:             Vercel Pro ($20/mes)
+IA Desarrollo:      Claude Max (pagado por devs, no OIT)
 ```
 
-### Ventajas de este Stack
+### Por qué este Stack
 - **Un solo proyecto**: Frontend y API en el mismo repositorio
 - **Un solo lenguaje**: TypeScript everywhere
 - **Deploy simple**: Push a GitHub = deploy automático
-- **Costo bajo**: Tier gratuito de Vercel + Supabase para MVP
+- **Costo predecible**: $45/mes infraestructura (6 meses = $270 USD)
+- **Claude lo conoce bien**: Stack mainstream = mejor asistencia IA
 - **Sin blockchain en MVP**: Se agrega en Fase 1
+- **pgvector incluido**: Supabase permite RAG para APRENDER si se necesita
 
 ---
 
@@ -55,10 +59,10 @@ Deploy:             Vercel (gratis para empezar)
                 │
 ┌───────────────┴─────────────────────────────────────────┐
 │              SERVICIOS EXTERNOS                          │
-│  ┌─────────┐ ┌─────────┐ ┌─────────┐                    │
-│  │  AFIP   │ │ Mercado │ │  Email  │                    │
-│  │  API    │ │  Pago   │ │ Resend  │                    │
-│  └─────────┘ └─────────┘ └─────────┘                    │
+│  ┌─────────┐ ┌─────────┐ ┌─────────┐ ┌─────────┐        │
+│  │  AFIP   │ │WhatsApp │ │  Email  │ │ Mercado │        │
+│  │  SDK    │ │ Twilio  │ │ Resend  │ │Pago(F1) │        │
+│  └─────────┘ └─────────┘ └─────────┘ └─────────┘        │
 └─────────────────────────────────────────────────────────┘
 ```
 
@@ -221,17 +225,24 @@ Ver: [06_INTEGRACIONES.md](06_INTEGRACIONES.md)
 
 ## Decisiones Técnicas
 
-### Decidido
-- [x] Stack: Next.js + Supabase (recomendado)
+### Confirmado ✅
+- [x] Stack: Next.js + Supabase Pro + Vercel Pro
 - [x] MVP sin blockchain (se agrega en Fase 1)
 - [x] Autenticación: NextAuth.js
-- [x] Pagos: Mercado Pago con escrow
-- [x] Deploy: Vercel
+- [x] Deploy: Vercel Pro ($20/mes)
+- [x] Base de datos: Supabase Pro ($25/mes)
+- [x] WhatsApp: Twilio (requerido por OIT)
+- [x] AFIP: Afip SDK para verificación CUIT
+- [x] Desarrollo: 100% asistido por Claude Max
 
-### Pendiente de Confirmar
-- [ ] Confirmar stack con equipo de desarrollo
-- [ ] Definir estrategia de testing (Jest + Cypress)
-- [ ] Configurar CI/CD en GitHub Actions
+### Cambiado desde propuesta inicial
+- [x] Pagos: **Placeholder en MVP** (registro manual, Mercado Pago en Fase 1)
+- [x] APRENDER: Cursos estáticos, RAG opcional si hay demanda
+
+### Por definir en desarrollo
+- [ ] Estrategia de testing (Jest + Playwright recomendado)
+- [ ] CI/CD en GitHub Actions
+- [ ] Proveedor específico de WhatsApp (Twilio vs alternativas)
 
 ---
 

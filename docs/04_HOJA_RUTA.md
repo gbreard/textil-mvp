@@ -263,15 +263,16 @@ TOTAL: 6 MESES
 | 5. Fiscalizar | 4 | FISCALIZAR | Dashboard inspector, alertas |
 | **TOTAL** | **36** | **6 funciones** | **MVP completo** |
 
-### Detalle Infraestructura
+### Detalle Infraestructura (6 meses)
 
-| Servicio | Plan | Total ARS |
-|----------|------|-----------|
-| Vercel | Free (MVP) | $0 |
-| Supabase | Free (MVP) | $0 |
-| Claude API (6 meses) | ~$80 USD/mes | $712,800 |
-| Dominio .ar | - | $37,200 |
-| **Subtotal Infra** | - | **$750,000** |
+| Servicio | Plan | $/mes USD | Total ARS |
+|----------|------|-----------|-----------|
+| Vercel | Pro | $20 | $178,200 |
+| Supabase | Pro | $25 | $222,750 |
+| Dominio .ar | - | ~$3 | $29,700 |
+| **Subtotal Infra** | - | **$48** | **$430,650** |
+
+**Nota:** Claude Max lo pagan los devs (no entra en presupuesto OIT).
 
 ---
 

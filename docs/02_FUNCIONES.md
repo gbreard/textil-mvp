@@ -6,13 +6,24 @@ La plataforma tiene **10 funciones** organizadas en 3 grupos:
 
 | Grupo | Funciones | Propósito |
 |-------|-----------|-----------|
-| **Core** | ENCONTRAR, ACORDAR, EJECUTAR, VERIFICAR, LOGÍSTICA, PAGAR | Flujo operativo día a día |
+| **Core** | REGISTRACIÓN, ENCONTRAR, ACORDAR, EJECUTAR, VERIFICAR, LOGÍSTICA, PAGAR | Flujo operativo día a día |
 | **Habilitación** | APRENDER, COMPLIANCE | Capacitar y formalizar |
 | **Gobernanza** | FISCALIZAR, GOBERNAR | Controlar y mejorar |
 
 ---
 
-## Funciones Core (6)
+## Funciones Core (7)
+
+### 0. REGISTRACIÓN (Nueva para MVP)
+**Onboarding simplificado sin molestar al usuario.**
+
+- Registro en <5 minutos con datos mínimos
+- Verificación automática de CUIT en AFIP
+- Auto-completar datos desde AFIP
+- Perfil progresivo (pedir más datos después, no al inicio)
+- Notificaciones por WhatsApp + Email
+
+**Resuelve:** B3 (Formalización Compleja) - Baja la barrera de entrada
 
 ### 1. ENCONTRAR
 **Motor de matching inteligente que conecta marcas con talleres.**
@@ -125,17 +136,18 @@ La plataforma tiene **10 funciones** organizadas en 3 grupos:
 
 ---
 
-## Funciones en MVP (6 de 10)
+## Funciones en MVP (7 de 11)
 
 | Función | En MVP | Notas |
 |---------|--------|-------|
+| **REGISTRACIÓN** | ✅ | Onboarding simple, <5 min, WhatsApp |
 | ENCONTRAR | ✅ | Directorio + búsqueda simple |
 | ACORDAR | ✅ | Contrato digital básico (sin blockchain) |
 | EJECUTAR | ❌ | Fase 1 (seguimiento en tiempo real) |
 | VERIFICAR | ❌ | Fase 1 (blockchain, QR) |
 | LOGÍSTICA | ❌ | Fase 1 (hubs) |
-| PAGAR | ✅ | Escrow con Mercado Pago |
-| APRENDER | ✅ | Catálogo cursos + certificados simples |
+| **PAGAR** | ⚠️ | **Placeholder** - Registro manual, Mercado Pago en Fase 1 |
+| APRENDER | ✅ | Catálogo cursos + certificados PDF |
 | COMPLIANCE | ✅ | Verificación CUIT en AFIP |
 | FISCALIZAR | ✅ | Dashboard básico para Estado |
 | GOBERNAR | ❌ | Fase 1 (parametrización avanzada) |
@@ -144,12 +156,20 @@ La plataforma tiene **10 funciones** organizadas en 3 grupos:
 
 | Función MVP | Barreras |
 |-------------|----------|
+| REGISTRACIÓN | B3 (Formalización) - Baja barrera de entrada |
 | ENCONTRAR | B4 (Falta de clientes) |
 | ACORDAR | B2 (Desconfianza) |
-| PAGAR | B2 (Desconfianza) |
 | COMPLIANCE | B3 (Formalización) |
 | FISCALIZAR | B5 (Estado ausente) |
-| APRENDER | B6 (Bajas capacidades) - Base para comunidad de aprendizaje |
+| APRENDER | B6 (Bajas capacidades) |
+
+### Nota sobre PAGAR
+
+En el MVP, PAGAR funciona como **placeholder**:
+- Marca y taller registran manualmente que el pago se realizó
+- No hay integración con Mercado Pago
+- El historial queda registrado en el sistema
+- En Fase 1 se integra escrow automático
 
 ---
 

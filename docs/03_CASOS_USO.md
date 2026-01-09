@@ -96,28 +96,42 @@ De los **50 casos de uso** documentados, **13 son prioritarios para el MVP** (6 
 ## Flujo Principal del MVP
 
 ```
+FLUJO REGISTRO (una sola vez):
+
+0. USUARIO se registra (REGISTRACIÓN)
+   → Email + contraseña
+   → Elige rol: marca o taller
+   → Ingresa CUIT → sistema verifica en AFIP
+   → Auto-completa datos desde AFIP
+   → Confirma teléfono WhatsApp
+   → ¡Listo en <5 minutos!
+
+
 FLUJO TRANSACCIONAL:
 
 1. MARCA crea pedido (ENCONTRAR)
    → Define: prenda, cantidad, plazo, presupuesto
-   → Deposita en Mercado Pago (escrow)
 
 2. SISTEMA sugiere talleres compatibles (ENCONTRAR)
    → Filtra por: formalización, capacidad, ubicación
+   → Notifica a talleres por WhatsApp + Email
 
 3. TALLER cotiza y acepta (ACORDAR)
    → Sistema muestra precio de referencia
 
 4. CONTRATO se firma digitalmente (ACORDAR)
    → Condiciones, hitos, pagos
+   → Notificación por WhatsApp a ambas partes
 
 5. TALLER produce y entrega
    → Marca avance manualmente
    → Sube foto de entrega
 
 6. MARCA confirma recepción (PAGAR)
-   → Mercado Pago libera pago a taller
+   → Marca registra que pagó (fuera del sistema)
+   → Taller confirma recepción de pago
    → Pedido completado
+   → (Fase 1: Mercado Pago con escrow automático)
 
 7. ESTADO monitorea (FISCALIZAR)
    → Dashboard con alertas de anomalías
